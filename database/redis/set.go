@@ -18,8 +18,8 @@ type MyCredentials struct {
 // You can either set localhost or cloud address in the Addr
 func CommonClient() *redis.Client {
 	client := redis.NewClient(&redis.Options{
-		Addr:     "redis-10827.c289.us-west-1-2.ec2.cloud.redislabs.com:10827",
-		Password: "e9EIAwKmrdz7WWTFRVVWU8ipEPRcamgY",
+		Addr:     "<cloud address> OR localhost:6379",
+		Password: "<password>",
 		DB:       0,
 	})
 	return client
