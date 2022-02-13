@@ -1,0 +1,72 @@
+{{template "base" .}}
+
+{{define "title"}} Confirm your Password {{end}}
+
+<link rel="stylesheet" href="../../static/css/form.css">
+
+<style>
+    input[placeholder="Enter your password"] {
+        text-align: center;
+    }
+    input[placeholder="Confirm your password"] {
+        text-align: center;
+    }
+</style>
+
+{{define "body"}}
+    <!-- Header -->
+    <header class="header shop">
+        {{template "preloader" .}}
+        <!-- Header Inner -->
+        <div class="header-inner">
+            <div class="container">
+                <div class="cat-nav-head">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="menu-area">
+                                {{template "menu" .}}	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <section id="contact-us" class="contact-us section">
+		<div class="container">
+				<div class="contact-head">
+					<div class="row">
+						<div class="col-lg-12 col-12">
+                            <div class="failure">
+                                {{.PasswordFailure}}
+                            </div>
+							<div class="single-head">
+								<h1 style="text-align: center;">Enter your Password</h1>
+                                <br>
+                                <form class="form" method="POST" action="/confirm-account-password">
+                                    <center>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-8 col-12">
+                                            <div class="form-group">
+                                                <label>Password<span>*</span></label>
+                                                <input type="password" name="password" placeholder="Enter your password" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </center>
+                                    <br>
+                                    <center><button class="btn">Submit</button></center>
+                                </form>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!--/ End Contact -->
+    
+    {{template "footer" .}}
+{{end}}

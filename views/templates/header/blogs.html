@@ -1,0 +1,147 @@
+{{template "base" .}}	
+
+{{define "title"}} Blogs {{end}}
+
+{{define "body"}}
+	<!-- Header -->
+	<header class="header shop">
+		{{template "preloader" .}}
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row">
+						<div class="col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								{{template "menu" .}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
+	</header>
+	<!--/ End Header -->
+	
+	<!-- Breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="bread-inner">
+						<ul class="bread-list">
+							<li><a href="/">Home<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a href="/blogs">Blogs</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Breadcrumbs -->
+			
+	<!-- Shopping Cart -->
+	<div class="shopping-cart section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Shopping Summery -->
+					<table class="table shopping-summery">
+						<thead>
+							<tr class="main-hading">
+								<th>PRODUCT</th>
+								<th>NAME</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{range .}}
+							<tr>
+								<td class="image" data-title="No"><img src="../../static/images/{{ .Images }}.jpg" style="width: 2000px; height: 300px;" alt="#"></td>
+								<td class="product-des" data-title="Description">
+									<p class="product-name"><a href="{{ .Links }}">{{ .Names }}</a></p>
+									<p class="product-des">
+										He standard Lorem Ipsum passage, used since the 1500s Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Section 1.10.32 of de Finibus Bonorum et Malorum, written by Cicero in 45 BC Sed ut perspiciatis unde omnis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+									</p>
+								</td>
+							</tr>
+							{{end}}
+						</tbody>
+					</table>
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ End Shopping Cart -->
+			
+	<!-- Start Shop Services Area  -->
+	<section class="shop-services section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-rocket"></i>
+						<h4>Free shiping</h4>
+						<p>Orders over $100</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-reload"></i>
+						<h4>Free Return</h4>
+						<p>Within 30 days returns</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-lock"></i>
+						<h4>Sucure Payment</h4>
+						<p>100% secure payment</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-tag"></i>
+						<h4>Best Peice</h4>
+						<p>Guaranteed price</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+	
+	<!-- Start Shop Newsletter  -->
+	<section class="shop-newsletter section">
+		<div class="container">
+			<div class="inner-top">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 col-12">
+						<!-- Start Newsletter Inner -->
+						<div class="inner">
+							<h4>Newsletter</h4>
+							<p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+							<form method="POST" class="newsletter-inner">
+								<input name="EMAIL" placeholder="Your email address" required="" type="email">
+								<button class="btn">Subscribe</button>
+							</form>
+						</div>
+						<!-- End Newsletter Inner -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+{{template "footer" .}}
+{{end}}

@@ -1,0 +1,167 @@
+{{template "base" .}}	
+
+{{define "title"}} Your Orders {{end}}
+
+<script>
+	function orders() {
+		const productsList = ["Women Hot Collection", "Awesome Pink Show", "Awesome Bag Collection", "Women Pant Collections", "Awesome Bags Collection", "Awesome Cap For Women", "Polo Dress For Women", "Black Sunglass For Women", "First Cloth", "Second Cloth", "Third Cloth", "Forth Cloth", "Fifth Cloth", "Sixth Cloth", "Seventh Cloth", "Eighth Cloth", "Ninth Cloth"];
+		var productContainer = document.querySelector(".cart-items");
+		var cartItems = localStorage.getItem("productsInCart");
+		if (productContainer && cartItems) {
+			cartItems = JSON.parse(cartItems)
+			for (var i = 0; i < productsList.length; i++) {
+				if (cartItems[productsList[i]] != undefined) {
+					var title = cartItems[productsList[i]].Title;
+					var image = cartItems[productsList[i]].Image;
+					productContainer.innerHTML += `
+					<tr class="cart-row">
+						<td class="image" data-title="No"><img src="${image}" alt="#"></td>
+						<td class="product-des" data-title="Description">
+							<p class="product-name"><a href="#">${title}</a></p>
+							<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
+						</td>
+					</tr>
+					`
+				}
+			}
+		} else {
+			console.log("not running");
+		}
+	}
+	orders();
+</script>
+
+{{define "body"}}
+	<!-- Header -->
+	<header class="header shop">
+		{{template "preloader" .}}
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row">
+						<div class="col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								{{template "menu" .}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
+	</header>
+	<!--/ End Header -->
+	
+	<!-- Breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="bread-inner">
+						<ul class="bread-list">
+							<li><a href="/">Home<i class="ti-arrow-right"></i></a></li>
+                            <li><a href="/your-account">Your Account</a></li>
+							<li class="active"><a href="/your-orders"><i class="ti-arrow-right"></i>Your Orders</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Breadcrumbs -->
+			
+	<!-- Shopping Cart -->
+	<div class="shopping-cart section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Shopping Summery -->
+					<table class="table shopping-summery">
+						<thead>
+							<tr class="main-hading">
+								<th>PRODUCT</th>
+								<th>NAME</th>
+							</tr>
+						</thead>
+						<tbody class="cart-items">
+							
+						</tbody>
+					</table>
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ End Shopping Cart -->
+			
+	<!-- Start Shop Services Area  -->
+	<section class="shop-services section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-rocket"></i>
+						<h4>Free shiping</h4>
+						<p>Orders over $100</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-reload"></i>
+						<h4>Free Return</h4>
+						<p>Within 30 days returns</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-lock"></i>
+						<h4>Sucure Payment</h4>
+						<p>100% secure payment</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-tag"></i>
+						<h4>Best Peice</h4>
+						<p>Guaranteed price</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+	
+	<!-- Start Shop Newsletter  -->
+	<section class="shop-newsletter section">
+		<div class="container">
+			<div class="inner-top">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 col-12">
+						<!-- Start Newsletter Inner -->
+						<div class="inner">
+							<h4>Newsletter</h4>
+							<p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+							<form method="POST" class="newsletter-inner">
+								<input name="EMAIL" placeholder="Your email address" required="" type="email">
+								<button class="btn">Subscribe</button>
+							</form>
+						</div>
+						<!-- End Newsletter Inner -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+{{template "footer" .}}
+{{end}}

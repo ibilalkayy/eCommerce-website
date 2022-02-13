@@ -1,0 +1,94 @@
+{{template "base" .}}
+
+{{define "title"}} Login {{end}}
+
+<link rel="stylesheet" href="../../static/css/form.css">
+
+{{define "body"}}
+    <!-- Header -->
+    <header class="header shop">
+        {{template "preloader" .}}
+        <!-- Header Inner -->
+        <div class="header-inner">
+            <div class="container">
+                <div class="cat-nav-head">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="menu-area">
+                                {{template "menu" .}}	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="/">Home<i class="ti-arrow-right"></i></a></li>
+                            <li class="active"><a href="/login">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <section id="contact-us" class="contact-us section">
+		<div class="container">
+				<div class="contact-head">
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 col-md-4 col-12">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="#">
+                                        <img class="default-img" src="../../static/images/53.jpeg" alt="#">
+                                        <img class="hover-img" src="../../static/images/53.jpeg" alt="#">
+                                    </a>
+                                </div>
+                                <div class="product-content">
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+						<div class="col-lg-8 col-12">
+                            <div class="failure">
+                                {{.LoginFailure}}
+                            </div>
+							<div class="single-head" style="text-align: center;">
+								<h1 style="text-align: center;">Login</h1>
+                                <br>
+                                <p style="text-align: center;">Login to access an account!</p>
+                                <form action="/login" method="POST">
+                                    <div>
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" placeholder="Enter your email address" required>
+                                    </div>
+                                    <div>
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" placeholder="Enter your password" required>
+                                    </div>
+                                    <div>
+                                        <input type="submit" value="Login">
+                                    </div>
+                                </form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!--/ End Contact -->
+    
+    {{template "footer" .}}
+{{end}}

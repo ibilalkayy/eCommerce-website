@@ -1,0 +1,103 @@
+{{template "base" .}}
+
+{{define "title"}} Your Payment {{end}}
+
+<style>
+    h4:hover{
+        color: #F7941D;
+    }
+</style>
+
+{{define "body"}}
+    <!-- Header -->
+    <header class="header shop">
+        {{template "preloader" .}}
+        <!-- Header Inner -->
+        <div class="header-inner">
+            <div class="container">
+                <div class="cat-nav-head">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="menu-area">
+                                {{template "menu" .}}	
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bread-inner">
+                        <ul class="bread-list">
+                            <li><a href="/">Home<i class="ti-arrow-right"></i></a></li>
+                            <li><a href="/your-account">Your Account</a></li>
+                            <li class="active"><a href="/your-payment"><i class="ti-arrow-right"></i>Your Payment</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <section id="contact-us" class="contact-us section">
+		<div class="container">
+				<div class="contact-head">
+					<div class="row">
+						<div class="col-lg-6 col-8">
+							<div class="single-head">
+                                <center><img src="../../static/images/orders.png" alt="" style="width: 220px; height: 160px;"></center>
+                                <br><br>
+								<a href="/your-payment-details" style="text-align: center;"><h4>Your Payment Details</h4></a>
+                                <br>
+                                <p style="text-align: center;">Iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+							</div>
+						</div>
+                        <div class="col-lg-6 col-8">
+                            <div class="single-head">
+                                <center><img src="../../static/images/security.png" alt="" style="width: 220px; height: 160px;"></center>
+                                <br><br>
+								<a href="/your-payment-method" style="text-align: center;"><h4>Enter your Payment Method</h4></a>
+                                <br>
+                                <p style="text-align: center;">Iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+	<!--/ End Contact -->
+
+    <!-- Start Shop Newsletter  -->
+	<section class="shop-newsletter section">
+		<div class="container">
+			<div class="inner-top">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 col-12">
+						<!-- Start Newsletter Inner -->
+						<div class="inner">
+							<h4>Newsletter</h4>
+							<p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+							<form method="POST" class="newsletter-inner">
+								<input name="EMAIL" placeholder="Your email address" required="" type="email">
+								<button class="btn">Subscribe</button>
+							</form>
+						</div>
+						<!-- End Newsletter Inner -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+    
+    {{template "footer" .}}
+{{end}}

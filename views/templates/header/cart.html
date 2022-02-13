@@ -1,0 +1,225 @@
+{{template "base" .}}	
+
+{{define "title"}} Cart {{end}}
+
+<script>
+	function addToCart() {
+		const productsList = ["Women Hot Collection", "Awesome Pink Show", "Awesome Bag Collection", "Women Pant Collections", "Awesome Bags Collection", "Awesome Cap For Women", "Polo Dress For Women", "Black Sunglass For Women", "First Cloth", "Second Cloth", "Third Cloth", "Forth Cloth", "Fifth Cloth", "Sixth Cloth", "Seventh Cloth", "Eighth Cloth", "Ninth Cloth"];
+		var productContainer = document.querySelector(".cart-items");
+		var cartItems = localStorage.getItem("productsInCart");
+		if (productContainer && cartItems) {
+			cartItems = JSON.parse(cartItems)
+			for (var i = 0; i < productsList.length; i++) {
+				if (cartItems[productsList[i]] != undefined) {
+					var title = cartItems[productsList[i]].Title;
+					var price = parseInt(cartItems[productsList[i]].Price.replace("$", ""));
+					var image = cartItems[productsList[i]].Image;
+					productContainer.innerHTML += `
+					<tr class="cart-row">
+						<td class="image" data-title="No"><img src="${image}" alt="#"></td>
+						<td class="product-des" data-title="Description">
+							<p class="product-name"><a href="#">${title}</a></p>
+							<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>
+						</td>
+						<td class="price" data-title="Price"><span>$${price}.00</span></td>
+						<td class="qty" data-title="Qty"><!-- Input Order -->
+							<div class="input-group">
+								<div class="button minus">
+									<button type="button" class="btn btn-primary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+										<i class="ti-minus"></i>
+									</button>
+								</div>
+								<input type="text" name="quant[1]" class="input-number"  data-min="1" data-max="100" value="1">
+								<div class="button plus">
+									<button type="button" class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+										<i class="ti-plus"></i>
+									</button>
+								</div>
+							</div>
+							<!--/ End Input Order -->
+						</td>
+						<td class="action" data-title="Remove"><a><i class="ti-trash remove-icon"></i></a></td>
+					</tr>
+					`
+				}
+			}
+		} else {
+			console.log("not running");
+		}
+	}
+	addToCart();
+</script>
+
+{{define "body"}}
+	<!-- Header -->
+	<header class="header shop">
+		{{template "preloader" .}}
+		<!-- Header Inner -->
+		<div class="header-inner">
+			<div class="container">
+				<div class="cat-nav-head">
+					<div class="row">
+						<div class="col-12">
+							<div class="menu-area">
+								<!-- Main Menu -->
+								{{template "menu" .}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Header Inner -->
+	</header>
+	<!--/ End Header -->
+	
+	<!-- Breadcrumbs -->
+	<div class="breadcrumbs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="bread-inner">
+						<ul class="bread-list">
+							<li><a href="/">Home<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a href="/cart">Cart</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Breadcrumbs -->
+			
+	<!-- Shopping Cart -->
+	<div class="shopping-cart section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Shopping Summery -->
+					<table class="table shopping-summery">
+						<thead>
+							<tr class="main-hading">
+								<th>PRODUCT</th>
+								<th>NAME</th>
+								<th class="text-center">UNIT PRICE</th>
+								<th class="text-center">QUANTITY</th>
+								<!-- <th class="text-center">TOTAL</th>  -->
+								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
+							</tr>
+						</thead>
+						<tbody class="cart-items">
+							
+						</tbody>
+					</table>
+					<!--/ End Shopping Summery -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<!-- Total Amount -->
+					<div class="total-amount">
+						<div class="row">
+							<div class="col-lg-8 col-md-5 col-12">
+								<div class="left">
+									<div class="coupon">
+										<form action="#" target="_blank">
+											<input name="Coupon" placeholder="Enter Your Coupon">
+											<button class="btn">Apply</button>
+										</form>
+									</div>
+									<div class="checkbox">
+										<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+10$)</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-7 col-12">
+								<div class="right">
+									<ul>
+										<li>Cart Subtotal<span class="subTotal"></span></li>
+										<li>Shipping<span>$20.00</span></li>
+										<li class="last">You Pay<span class="totalPrice"></span></li>
+									</ul>
+									<div class="button5">
+										<a href="/checkout" class="btn">Checkout</a>
+										<a href="/products-list" class="btn">Continue shopping</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/ End Total Amount -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/ End Shopping Cart -->
+			
+	<!-- Start Shop Services Area  -->
+	<section class="shop-services section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-rocket"></i>
+						<h4>Free shiping</h4>
+						<p>Orders over $100</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-reload"></i>
+						<h4>Free Return</h4>
+						<p>Within 30 days returns</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-lock"></i>
+						<h4>Sucure Payment</h4>
+						<p>100% secure payment</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+				<div class="col-lg-3 col-md-6 col-12">
+					<!-- Start Single Service -->
+					<div class="single-service">
+						<i class="ti-tag"></i>
+						<h4>Best Peice</h4>
+						<p>Guaranteed price</p>
+					</div>
+					<!-- End Single Service -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+	
+	<!-- Start Shop Newsletter  -->
+	<section class="shop-newsletter section">
+		<div class="container">
+			<div class="inner-top">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 col-12">
+						<!-- Start Newsletter Inner -->
+						<div class="inner">
+							<h4>Newsletter</h4>
+							<p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+							<form method="POST" class="newsletter-inner">
+								<input name="EMAIL" placeholder="Your email address" required="" type="email">
+								<button class="btn">Subscribe</button>
+							</form>
+						</div>
+						<!-- End Newsletter Inner -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Shop Newsletter -->
+{{template "footer" .}}
+{{end}}
