@@ -10,7 +10,7 @@ import (
 	"github.com/ibilalkayy/eCommerce/routes"
 )
 
-// Executing the routes and setting up the port to :4000
+// Executing the routes and setting up the port at :4000
 func Execute() error {
 	routes.Routes()
 	fmt.Println("Starting the server at :4000")
@@ -20,6 +20,7 @@ func Execute() error {
 		port = "4000"
 	}
 	return http.ListenAndServe(":"+port, nil)
+	// Port to make it work locally
 	// return http.ListenAndServe(":4000", nil)
 }
 
